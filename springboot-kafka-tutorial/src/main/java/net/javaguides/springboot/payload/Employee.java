@@ -1,5 +1,7 @@
 package net.javaguides.springboot.payload;
 
+import java.util.Objects;
+
 public class Employee {
 
     private String empName;
@@ -46,5 +48,18 @@ public class Employee {
                 ", empId=" + empId +
                 ", empEmail='" + empEmail + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return empId == employee.empId && Objects.equals(empName, employee.empName) && Objects.equals(empEmail, employee.empEmail);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empName, empId, empEmail);
     }
 }
