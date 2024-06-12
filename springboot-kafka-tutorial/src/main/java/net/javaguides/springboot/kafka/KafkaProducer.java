@@ -18,6 +18,6 @@ public class KafkaProducer {
     public void sendMessage(String message)
     {
         kafkaTemplate.send("javaguides",message);
-        LOGGER.info("message sent::"+message);
+        LOGGER.info("message sent successfully::"+message);
     }
 }
